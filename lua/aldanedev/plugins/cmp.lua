@@ -9,7 +9,8 @@ return {
     "L3MON4D3/LuaSnip",
     "hrsh7th/cmp-git",
     "saadparwaiz1/cmp_luasnip",
-    "windwp/nvim-autopairs"
+    "windwp/nvim-autopairs",
+    "zbirenbaum/copilot-cmp",
   },
   event = "VeryLazy",
   main = "aldanedev.config.cmp",

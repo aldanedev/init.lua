@@ -3,10 +3,10 @@ local M = {}
 
 local cmp = require("cmp")
 local luasnip = require("luasnip")
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+local copilot_cmp = require("copilot_cmp")
 
 function M.setup()
- cmp.setup({
+  cmp.setup({
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)
@@ -23,9 +23,9 @@ function M.setup()
           fallback()
         end
       end
-        , {"i", "s"}),
+      , { "i", "s" }),
       ["<c-space>"] = cmp.mapping.complete(),
-      ["<cr>"] = cmp.mapping.confirm{
+      ["<cr>"] = cmp.mapping.confirm {
         behavior = cmp.ConfirmBehavior.Insert,
         select = true
       },
@@ -33,18 +33,22 @@ function M.setup()
 
     },
     sources = {
-      { name = "nvim_lsp"},
-      { name = "path"},
-      { name = "luasnip"},
-      { name = "buffer"},
+      { name = "copilot" },
+      { name = "nvim_lsp" },
+      { name = "path" },
+      { name = "luasnip" },
+      { name = "buffer" },
     }
   })
 
-  cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({tex = ""}))
+  copilot_cmp.setup({})
+
 
   cmp.event:on("menu_opened", function()
     vim.b.copilot_suggestion_hidden = true
   end)
+
+
 
   cmp.event:on("menu_closed", function()
     vim.b.copilot_suggestion_hidden = false
@@ -52,11 +56,12 @@ function M.setup()
 
   cmp.setup.filetype("gitcommit", {
     sources = cmp.config.sources({
-      {name = "git"}
-    },
-    {
-      {name = "buffer"}
-    }) })
+        { name = "git" }
+      },
+      {
+        { name = "buffer" }
+      })
+  })
 
   cmp.setup.cmdline({ '/', '?' }, {
     mapping = cmp.mapping.preset.cmdline(),
@@ -67,17 +72,16 @@ function M.setup()
 
   cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline({
-      ["<Up>"] = { c = cmp.mapping.select_prev_item()},
-      ["<CR>"] = { c = cmp.mapping.confirm()},
-      ["<Down>"] = { c =  cmp.mapping.select_next_item()}}),
+      ["<Up>"] = { c = cmp.mapping.select_prev_item() },
+      ["<CR>"] = { c = cmp.mapping.confirm() },
+      ["<Down>"] = { c = cmp.mapping.select_next_item() }
+    }),
     sources = cmp.config.sources({
       { name = 'path' }
     }, {
       { name = 'cmdline' }
     })
   })
-
 end
-
 
 return M
