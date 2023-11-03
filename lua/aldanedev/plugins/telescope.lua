@@ -54,6 +54,13 @@ return {
         require("telescope").extensions.harpoon.marks()
       end,
       desc = "Harpoon Files"
+    },
+    {
+      "<leader>gd",
+      function ()
+        require("telescope.builtin").git_bcommits()
+      end,
+      desc = "Telescope Git Status Commit"
     }
   }
 
