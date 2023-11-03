@@ -4,7 +4,7 @@ return {
     "williamboman/mason.nvim",
     "folke/neodev.nvim"
   },
-  config =  function()
+  config = function()
     require('neodev').setup({})
     require('lspconfig').lua_ls.setup({})
     require('lspconfig').golangci_lint_ls.setup({})

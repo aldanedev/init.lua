@@ -1,0 +1,5 @@
+vim.keymap.set("n", "<leader>w<Up>", "<C-w>k", { desc = "Window Up" })
+vim.keymap.set("n", "<leader>w<Down>", "<C-w>j", { desc = "Window Down" })
+vim.keymap.set("n", "<leader>w<Left>", "<C-w>h", { desc = "Window Left" })
+vim.keymap.set("n", "<leader>w<Right>", "<C-w>l", { desc = "Window Right" })
+vim.keymap.set("n", "<leader>q", vim.cmd.exit, { desc = "Close Buffer" })
