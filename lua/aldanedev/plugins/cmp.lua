@@ -9,7 +9,7 @@ return {
     "L3MON4D3/LuaSnip",
     "hrsh7th/cmp-git",
     "saadparwaiz1/cmp_luasnip",
-    "windwp/nvim-autopairs",
+    { "windwp/nvim-autopairs", event = "InsertEnter", config = true },
     "zbirenbaum/copilot-cmp",
   },
   event = "VeryLazy",
