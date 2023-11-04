@@ -12,7 +12,6 @@ return {
       "jq",
       "typescript",
       "tsx",
-      "java"
     },
     highlight = {
       enable = true

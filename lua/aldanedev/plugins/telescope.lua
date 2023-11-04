@@ -14,7 +14,7 @@ return {
       case_mode = "smart_case"
     }
   },
-  config = function (opts)
+  config = function(opts)
     require("telescope").setup(opts)
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("harpoon")
@@ -22,45 +22,52 @@ return {
   keys = {
     {
       "<leader>p",
-      function ()
-        require("telescope.builtin").git_files({ show_untracked = true})
+      function()
+        require("telescope.builtin").git_files({ show_untracked = true })
       end,
       desc = "Telescope Git Files"
     },
     {
       "<leader>gs",
-      function ()
+      function()
         require("telescope.builtin").git_status()
       end,
       desc = "Telescope Git Status"
     },
     {
       "<leader>gb",
-      function ()
+      function()
         require("telescope.builtin").git_branches()
       end,
       desc = "Telescope Git Branches"
     },
     {
       "<leader>e",
-      function ()
-        require("telescope").extensions.file_browser.file_browser({ path = "%:h:p", select_buffer = true})
+      function()
+        require("telescope").extensions.file_browser.file_browser({ path = "%:h:p", select_buffer = true })
       end,
       desc = "Telescope File Browser"
     },
     {
       "<leader>l",
-      function ()
+      function()
         require("telescope").extensions.harpoon.marks()
       end,
       desc = "Harpoon Files"
     },
     {
       "<leader>gd",
-      function ()
+      function()
         require("telescope.builtin").git_bcommits()
       end,
       desc = "Telescope Git Status Commit"
+    },
+    {
+      "<leader>gg",
+      function()
+        require("telescope.builtin").grep_string()
+      end,
+      desc = "Telescope Grep Files"
     }
   }
 
