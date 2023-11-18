@@ -42,14 +42,14 @@ return {
       desc = "Telescope Git Branches"
     },
     {
-      "<leader>d",
+      "<leader>b",
       function()
         require("telescope").extensions.file_browser.file_browser({ path = "%:h:p", select_buffer = true })
       end,
       desc = "Telescope File Browser"
     },
     {
-      "<leader>b",
+      "<leader>d",
       function()
         require("telescope").extensions.harpoon.marks()
       end,
@@ -65,7 +65,7 @@ return {
     {
       "<leader>gg",
       function()
-        require("telescope.builtin").grep_string()
+        require("telescope.builtin").live_grep()
       end,
       desc = "Telescope Grep Files"
     }
