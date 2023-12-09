@@ -42,13 +42,6 @@ return {
       desc = "Telescope Git Branches"
     },
     {
-      "<leader>b",
-      function()
-        require("telescope").extensions.file_browser.file_browser({ path = "%:h:p", select_buffer = true })
-      end,
-      desc = "Telescope File Browser"
-    },
-    {
       "<leader>d",
       function()
         require("telescope").extensions.harpoon.marks()
